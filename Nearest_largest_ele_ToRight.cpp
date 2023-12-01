@@ -28,6 +28,7 @@ using namespace std;
 
 //     return result;
 // }
+// best aprroach using stack
 vector<int> findNearestLarger(vector<int> &arr)
 {
     int n = arr.size();
