@@ -3,7 +3,7 @@
 using namespace std;
 // brute force
 
-vector<int> findNearestSmaller(vector<int> &arr)
+/*vector<int> findNearestSmaller(vector<int> &arr)
 {
     int n = arr.size();
     vector<int> result;
@@ -27,9 +27,10 @@ vector<int> findNearestSmaller(vector<int> &arr)
     }
 
     return result;
-}
+}*/
+
 // best aprroach using stack
-/*vector<int> findNearestSmaller(vector<int> &arr)
+vector<int> findNearestSmaller(vector<int> &arr)
 {
     int n = arr.size();
     vector<int> result;
@@ -63,11 +64,12 @@ vector<int> findNearestSmaller(vector<int> &arr)
     }
     // reverse(result.begin(), result.end());
     return result;
-}*/
+}
 int main()
 {
 
-    vector<int> arr = {4, 5, 2, 10, 8};
+    vector<int> arr = {4, 7, 8, 2, 3, 1};
+    // vector<int> arr = {4, 5, 2, 10, 8};
 
     vector<int> result = findNearestSmaller(arr);
 

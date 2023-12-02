@@ -49,7 +49,7 @@ vector<int> findNearestSmaller(vector<int> &arr)
             while (s.size() > 0 && s.top() >= arr[i])
             {
                 s.pop();
-            }
+                      }
             if (s.size() == 0)
             {
                 result.push_back(-1);
