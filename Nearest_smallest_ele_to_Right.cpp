@@ -49,7 +49,7 @@ vector<int> findNearestSmaller(vector<int> &arr)
             while (s.size() > 0 && s.top() >= arr[i])
             {
                 s.pop();
-                      }
+            }
             if (s.size() == 0)
             {
                 result.push_back(-1);
@@ -67,7 +67,8 @@ vector<int> findNearestSmaller(vector<int> &arr)
 int main()
 {
 
-    vector<int> arr = {4, 7, 8, 2, 3, 1};
+    vector<int> arr = {2, 1, 4, 3};
+    // vector<int> arr = {4, 7, 8, 2, 3, 1};
 
     vector<int> result = findNearestSmaller(arr);
 
