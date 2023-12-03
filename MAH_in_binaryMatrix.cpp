@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <vector>
 using namespace std;
 
 // NSL
@@ -116,46 +115,56 @@ int maxArea(vector<int> &areaAns)
     }
     return maxi;
 }
-int main()
+int MAH(vector<int> &v)
+{
+    vector<int> right = NSR(v);
+    vector<int> left = NSL(v);
+    int n = v.size();
+    vector<int> widthans = widthNikalo(left, right, n);
+    vector<int> areaAns = AreaNikalo(widthans, v, n);
+    int maxAns = maxArea(areaAns);
+    return maxAns;
+}
+
+// =============
+int maxArea(int M[4][4], int n, int m)
 {
 
-    vector<int> arr = {3, 4, 0, 0};
-    // vector<int> arr = {6, 2, 5, 4, 5, 1, 6};
+    vector<int> v;
+    for (int j = 0; j < m; j++)
+    {
+        v.push_back(M[0][j]);
+    }
+    int mx = MAH(v);
 
-    vector<int> right = NSR(arr);
-    vector<int> left = NSL(arr);
-    // cout << "Nearest smaller elements: ";
+    //  remaining row k liye
 
-    // for (int i = 0; i < right.size(); i++)
-    // {
-    //     cout << right[i] << " ";
-    // }
-    cout << "----------------------------" << endl;
-    cout << "----------------------------" << endl;
-    cout << "----------------------------" << endl;
-    // for (int i = 0; i < left.size(); i++)
-    // {
-    //     cout << left[i] << " ";
-    // }
-    cout << "----------------------------" << endl;
-    cout << "----------------------------" << endl;
-    int n = arr.size();
-    vector<int> widthans = widthNikalo(left, right, n);
-    // for (int i = 0; i < widthans.size(); i++)
-    // {
-    //     cout << widthans[i] << " ";
-    // }
-    vector<int> areaAns = AreaNikalo(widthans, arr, n);
-    // vector<int> area;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     int Area = arr[i] * widthans[i];
-    //     area.push_back(Area);
-    // }
-    int maxAns = maxArea(areaAns);
-    cout << "maximum area histogram :-->" << maxAns;
-    // auto maxi = max_element(areaAns.begin(), areaAns.end());
-    // cout << "maximum area histogram :-->" << *maxi;
+    for (int i = 1; i < n; i++)
+    {
 
-    return 0;
+        for (int j = 0; j < m; j++)
+        {
+            if (M[i][j] == 0)
+            {
+                v.push_back(0);
+                v[j] = 0;
+            }
+            else
+            {
+                v[j] = v[j] + M[i][j];
+                // cout << v[j] << " ";
+            }
+        }
+        mx = max(mx, MAH(v));
+    }
+    return mx;
+}
+int main()
+{
+    int M[4][4] = {{0, 1, 1, 0},
+                   {1, 1, 1, 1},
+                   {1, 1, 1, 1},
+                   {1, 1, 0, 0}};
+    int ans = maxArea(M, 4, 4);
+    cout << ans;
 }
