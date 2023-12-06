@@ -1,3 +1,26 @@
+// #include <bits/stdc++.h>
+// using namespace std;
+// int sumSubarrayMins(vector<int> &arr, int n)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         int minVal = arr[i];
+//         for (int j = i; j < n; j++)
+//         {
+//             minVal = min(minVal, arr[j]);
+//             sum += minVal;
+//         }
+//     }
+//     return sum;
+// }
+// int main()
+// {
+//     vector<int> arr = {1, 2, 3, 4};
+//     int n = arr.size();
+//     int ans = sumSubarrayMins(arr, n);
+//     cout << ans;
+// }
 #include <bits/stdc++.h>
 #include <vector>
 using namespace std;
@@ -42,7 +65,7 @@ vector<int> findNearestLarger(vector<int> &arr)
         }
         else if (s.size() > 0 && s.top() > arr[i])
         {
-            result.push_back(s.top());
+            result.push_back(i + 1);
         }
         else if (s.size() > 0 && s.top() <= arr[i])
         {

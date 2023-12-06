@@ -67,7 +67,7 @@ vector<int> findNearestLarger(vector<int> &arr)
 int main()
 {
 
-    vector<int> arr = {7, 12, 1, 20};
+    vector<int> arr = {3, 1, 2, 4};
 
     vector<int> result = findNearestLarger(arr);
 
